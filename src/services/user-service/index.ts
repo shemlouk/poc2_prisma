@@ -1,12 +1,12 @@
-import userRepository from "../../repositories/user-repository";
+import { IUserRepository } from "../../protocols";
 import { CreateUser } from "../../schemas";
 import errors from "../../errors";
 
-const create = async (data: CreateUser) => {
-  const emailFound = await userRepository.findByEmail(data.email);
+const create = async (data: CreateUser, repository: IUserRepository) => {
+  const emailFound = await repository.findByEmail(data.email);
   if (emailFound) throw errors.conflictError("Email");
 
-  return await userRepository.create(data);
+  return await repository.create(data);
 };
 
 const userService = { create };

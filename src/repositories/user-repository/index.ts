@@ -1,3 +1,4 @@
+import { IUserRepository } from "../../protocols";
 import prisma from "../../config/database";
 import { Prisma } from "@prisma/client";
 
@@ -13,6 +14,6 @@ const findById = async (id: number) => {
   return prisma.user.findUnique({ where: { id } });
 };
 
-const userRepository = { create, findByEmail, findById };
+const userRepository: IUserRepository = { create, findByEmail, findById };
 
 export default userRepository;
