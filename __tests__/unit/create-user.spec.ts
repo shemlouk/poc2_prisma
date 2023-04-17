@@ -3,7 +3,7 @@ import userService from "../../src/services/user-service";
 import { Prisma } from "@prisma/client";
 import errors from "../../src/errors";
 
-describe("Create user", () => {
+describe("Create user (service)", () => {
   it("Should create a new user and return it", async () => {
     const newUser: Prisma.UserUncheckedCreateInput = {
       name: "test",
