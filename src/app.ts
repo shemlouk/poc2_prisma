@@ -14,8 +14,4 @@ app
   .use(router)
   .use(errorHandlingMiddleware);
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server started on PORT ${PORT}`);
-});
+export default app;
